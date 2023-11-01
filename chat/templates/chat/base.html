@@ -1,4 +1,4 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +6,27 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Chat App</title>
+    <title>{% block title %} Django Chat {% endblock title %}</title>
 </head>
 <body class="min-h-screen">
-<header class="bg-teal-600 w-100 min-h-screen">
-    <h1>Hello Chat</h1>
-</header>
+{% block header %}
+    <header class="bg-gradient-to-b from-green-400 to-green-700 w-full min-h-screen">
+        <nav class="flex items-center justify-between px-4 py-6 bg-green-700">
+            <div>
+                <a href="/" class="text-xl text-white">Chat App</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/login" class="text-white hover:text-gray-200">Login</a>
+                <a href="/" class="px-4 py-2 rounded-xl text-white bg-green-500 hover:bg-green-800">Sign Up</a>
+            </div>
+
+        </nav>
+        {% block header-content %}
+        {% endblock header-content %}
+    </header>
+{% endblock header %}
+{% block content %}
+
+{% endblock content %}
 </body>
 </html>

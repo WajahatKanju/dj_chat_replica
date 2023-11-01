@@ -23,7 +23,7 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/../dj_chat_replica\templates" />
+        <option value="$MODULE_DIR$/chat/templates" />
       </list>
     </option>
   </component>
