@@ -1,0 +1,45 @@
+{% extends 'chat/base.html' %}
+{% block title %} LOGIN   | {% endblock title %}
+{% block content %}
+    <div class="p-10 lg:p-20 text-center">
+        <h1 class="text-3xl lg:text-6xl text-white">Django Chat</h1>
+    </div>
+    <form method="POST" action="{% url 'login' %}"
+          class="lg:w-1/2 md:w-3/4 sm:w-full px-4 mx-auto bg-emerald-300 p-6 rounded-lg">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="username" class="text-emerald-800 block">Username</label>
+            <input type="text" name="username" id="username"
+                   class="w-full mt-2 px-4 py-2 rounded-lg bg-green-100 text-green-800 border-2 border-green-100 focus:border-green-300 focus:outline-none">
+        </div>
+        <div class="mb-4">
+            <label for="password" class="text-emerald-800 block">Password</label>
+            <input type="password" name="password" id="password"
+                   class="w-full mt-2 px-4 py-2 rounded-lg bg-green-100 text-green-800 border-2 border-green-100 focus:border-green-300 focus:outline-none">
+        </div>
+
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="mb-5 p-4 rounded-md bg-red-300 text-white">
+                        <p> {{ error | escape }}</p>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <div class="mb-5 p-4 rounded-md bg-red-500 text-white">
+                    <p> {{ error | escape }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <hr>
+
+        <button class="block mx-auto w-40 px-5 py-3 rounded-xl text-white bg-green-800 hover:bg-green-700"
+                type="submit">Submit
+        </button>
+    </form>
+
+
+{% endblock content %}
