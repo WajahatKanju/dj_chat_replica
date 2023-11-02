@@ -16,6 +16,12 @@
             <div>
                 <a href="/" class="text-xl text-white">Chat App</a>
             </div>
+            <div class="flex item-center space-x-8">
+                <a href="{% url 'index' %}"
+                   class="text-xl text-white hover:text-gray-300 transition-colors duration-300">Home</a>
+                <a href="{% url 'rooms' %}"
+                   class="text-xl text-white hover:text-gray-300 transition-colors duration-300">Rooms</a>
+            </div>
             <div class="flex items-center space-x-4">
                 {% if user.is_authenticated %}
                     <a href="{% url 'logout' %}" class="text-white hover:text-gray-200">Logout</a>
